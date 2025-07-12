@@ -20,7 +20,7 @@ const handleLogout=async()=>{
 
  await axios.post("http://localhost:3000/auth/logout",{},{withCredentials:true});
  dispatch(removeuser());
- navigate("/login");
+ navigate("");
   }
   catch(err){
  console.log(err);
@@ -30,15 +30,18 @@ const handleLogout=async()=>{
   return (
     <div className="navbar bg-primary shadow-sm sticky top-0 z-50 text-white">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl text-white">Dev-Tinder</a>
+        <a className="btn btn-ghost text-xl text-white">Let's Connect</a>
       </div>
 
+  <div className="flex gap-4 pr-4">
+     <Link to="/feed">Home</Link>
+      </div>
+      
+ <div className="flex gap-4 pr-4">
+        <Link to="/contact">Contact Us</Link>
+      </div>
       <div className="flex items-center gap-4 pr-4">
-        <input
-          type="text"
-          placeholder="Search"
-          className="input input-bordered w-24 md:w-auto"
-        />
+       
 
         <span>{user?.firstName || "Guest"}</span>
 
